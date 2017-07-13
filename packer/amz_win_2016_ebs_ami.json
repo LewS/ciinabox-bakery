@@ -79,6 +79,16 @@
       }
     },
     {
+      "type": "powershell"'
+      "inline": [
+      "$FQDN = (New-Object System.Net.WebClient).DownloadString(\"http://169.254.169.254/latest/meta-data/hostname\")",
+      "$dnsbits = $FQDN.Split('.')",
+      "$DNSDOMAIN = $FQDN.Replace($($dnsbits[0]),'')",
+      "$dnsconf =  Get-DnsClientGlobalSetting",
+      "Set-DnsClientGlobalSetting -SuffixSearchList $dnsConf.SuffixSearchList.replace(\"$DNSDOMAIN\",\"\")"
+      ]        
+    },        
+    {
       "type": "powershell",
       "inline": [
         "C:/ProgramData/Amazon/EC2-Windows/Launch/Scripts/InitializeInstance.ps1 -Schedule"
