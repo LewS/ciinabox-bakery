@@ -17,7 +17,7 @@ sc config winrm start=auto
 net start winrm
 
 # turn off PowerShell execution policy restrictions
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine -Force
 
 tzutil /s "AUS Eastern Standard Time"
 
