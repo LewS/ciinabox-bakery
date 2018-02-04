@@ -1,6 +1,5 @@
 $ErrorActionPreference = "Stop"
 Set-ExecutionPolicy Bypass -force
-$env:path = "$env:path;$env:programfiles\7-Zip"
 Write-Output "Start at: $(Get-Date)"
 try
 {
@@ -19,7 +18,6 @@ try
     Write-Output "INFO: No Cookbooks to download...this instance must have existing cookbooks"
     exit 0
   }
-
   try {
     Write-Output "INFO: Downloading chef bundle from s3 location: $SourceBucket/$ChefPath/$CookbookVersion/chef-bundle.tar.gz"
     Read-S3Object -Region $BucketRegion -BucketName $SourceBucket -Key /$ChefPath/$CookbookVersion/chef-bundle.tar.gz -File $GzipPath
@@ -34,8 +32,8 @@ try
   }
 
   Write-Output "INFO: Extracting $GzipPath to $CookbookDir"
-  7z x $GzipPath -o"$Base2Path" -y
-  7z x $TarPath -o"$Destination" -y
+  7za x $GzipPath -o"$Base2Path" -y
+  7za x $TarPath -o"$Destination" -y
 
   Write-Output "INFO: Cleaning up $GzipPath $TarPath"
   rm $GzipPath
