@@ -50,8 +50,7 @@
     {
       "type": "powershell",
       "scripts": [
-        "scripts/win2016/download_cookbooks.ps1",
-        "scripts/win2016/amazon_setup.ps1"
+        "scripts/win2016/download_cookbooks.ps1"
       ],
       "environment_vars": [
         "SOURCE_BUCKET={{user `source_bucket`}}",
