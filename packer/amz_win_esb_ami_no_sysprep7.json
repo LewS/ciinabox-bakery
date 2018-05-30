@@ -68,7 +68,7 @@
     },
     {
       "type": "chef-client",
-      "install_command": "powershell.exe -Command \"(New-Object System.Net.WebClient).DownloadFile('https://packages.chef.io/files/stable/chef/13.9.1/windows/2012r2/chef-client-13.9.1-1-x64.msi', 'C:\\Windows\\Temp\\chef.msi');Start-Process 'msiexec' -ArgumentList '/qb /i C:\\Windows\\Temp\\chef.msi' -NoNewWindow -Wait\"",
+      "install_command": "powershell.exe -Command \"(New-Object System.Net.WebClient).DownloadFile('https://packages.chef.io/files/stable/chef/14.1.12/windows/2012r2/chef-client-14.1.12-1-x64.msi', 'C:\\Windows\\Temp\\chef.msi');Start-Process 'msiexec' -ArgumentList '/qb /i C:\\Windows\\Temp\\chef.msi' -NoNewWindow -Wait\"",
      "guest_os_type": "windows",
       "config_template": "packer/templates/chef-client-win.tpl",
       "skip_install": false,
