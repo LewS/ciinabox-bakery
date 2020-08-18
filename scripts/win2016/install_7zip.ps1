@@ -21,8 +21,7 @@ try
 
   # Download 7zip
   Write-Output "Downloading 7zip from $7zip_download_url"
-  $AllProtocols = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
-  [System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols
+  [System.Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
   $wc = new-object System.Net.WebClient
   $wc.DownloadFile($7zip_download_url,"$temp_folder\" + $7zip_download_url.Split("/")[-1])
 
