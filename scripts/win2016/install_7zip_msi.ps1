@@ -15,7 +15,7 @@ if (Test-Path -Path $workdir -PathType Container) {
 $source = "https://www.7-zip.org/a/7z$version-x64.msi"
 $destination = "$workdir\7-Zip.msi"
 Write-Host "INFO: Downloading 7-Zip $version msi from $source"
-Invoke-WebRequest $source -OutFile $destination
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 Invoke-WebRequest -Uri $source -OutFile $destination
 
 Write-Host "INFO: Installing 7-Zip msi"
 $MSIArguments = @(
