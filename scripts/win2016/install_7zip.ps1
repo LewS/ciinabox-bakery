@@ -21,7 +21,9 @@ try
 
   # Download 7zip
   Write-Output "Downloading 7zip from $7zip_download_url"
-  [System.Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $wc = new-object System.Net.WebClient
+  $AllProtocols = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
+  [System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols
+  $wc = new-object System.Net.WebClient
   $wc.DownloadFile($7zip_download_url,"$temp_folder\" + $7zip_download_url.Split("/")[-1])
 
   # Install 7-zip (just unzipping file to a 7zip folder)
