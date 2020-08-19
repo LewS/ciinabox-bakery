@@ -45,10 +45,6 @@
     },
     {
       "type": "powershell",
-      "script": "scripts/win2016/install_7zip.ps1"
-    },
-    {
-      "type": "powershell",
       "inline": [
         "New-Item c:/chef/cookbooks -type directory -force",
         "New-Item c:/chef/data_bags -type directory -force",
